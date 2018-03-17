@@ -8,6 +8,6 @@ namespace MariosSpecialtyProducts.Models
         public virtual DbSet<Product> Products { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
-                .UseMySql(@"Server=localhost;Port=8889;database=MariosSpecialtyProducts;uid=root;pwd=root;");
+                .UseMySql(@"Server=localhost;Port=3306;database=MariosSpecialtyProducts;uid=root;pwd=root;");
     }
 }

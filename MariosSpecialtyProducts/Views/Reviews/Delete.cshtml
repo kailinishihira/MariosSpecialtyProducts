@@ -10,7 +10,9 @@
 </div>
 
 <h4>Are you sure you want to delete your review?</h4>
-<p class="back">@Html.ActionLink("Back", "Details", new{ reviewId = Model.ReviewId})</p> 
+
+<p class="back">@Html.ActionLink("Back", "Details", "Products", new { productId = Model.ProductId })</p>
+
 
 @using (Html.BeginForm())
 {

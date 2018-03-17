@@ -8,22 +8,23 @@
     <h1 class="title">@Html.DisplayFor(model => model.Name) Details</h1>
 </div>
 
-<p class="crud">@Html.ActionLink("Edit", "Edit", new{ productId = Model.ProductId }) | @Html.ActionLink("Delete", "Delete", new{ productId = Model.ProductId })</p>
 <p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
+
+<p class="crud">@Html.ActionLink("Edit", "Edit", new{ productId = Model.ProductId }) | @Html.ActionLink("Delete", "Delete", new{ productId = Model.ProductId })</p>
 
 <div class="well">
     <h4>@Html.DisplayFor(model => model.Name)</h4>
-	<p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
+	<p>Cost: @Html.DisplayFor(model => model.Cost)</p>
     <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 </div>
 
 <h3>Reviews</h3>
-<p>@Html.ActionLink("Add a review", "AddReview", "Reviews", new{productId = Model.ProductId })</p>
+<p>@Html.ActionLink("Add a review", "Create", "Reviews", new{productId = Model.ProductId })</p>
 
     @foreach(var review in Model.Reviews)
     {
         <div class="well">
-            <p class="reviews">Rating: @Html.DisplayFor(model => review.Rating) stars</p>
+            <p class="reviews">Star Rating: @Html.DisplayFor(model => review.Rating)</p>
     	    <p>By: @Html.DisplayFor(model => review.Author)</p>
     	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
 	        <p>@Html.ActionLink("Edit", "Edit", "Reviews", new{ reviewId = review.ReviewId}) | @Html.ActionLink("Delete", "Delete", "Reviews", new{ reviewId = review.ReviewId})</p>

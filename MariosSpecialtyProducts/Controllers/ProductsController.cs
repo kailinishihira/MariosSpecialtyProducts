@@ -54,9 +54,9 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 productRepo.Save(product);
-               
+                return RedirectToAction("Index");
             }
-			return RedirectToAction("Index");
+            return View();
         }
 
         // GET: Products/Edit/5
@@ -74,8 +74,9 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 productRepo.Edit(product);
+                return RedirectToAction("Details", new { productId = product.ProductId });
             }
-			return RedirectToAction("Details", new { productId = product.ProductId });
+            return View(product);
 		}
 
         // GET: Products/Delete/5

@@ -8,8 +8,8 @@ using MariosSpecialtyProducts.Models;
 namespace MariosSpecialtyProducts.Migrations
 {
     [DbContext(typeof(MariosSpecialtyProductsContext))]
-    [Migration("20171020204332_RequiredToProducts")]
-    partial class RequiredToProducts
+    [Migration("20180317082830_UpdateCost")]
+    partial class UpdateCost
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,8 +21,7 @@ namespace MariosSpecialtyProducts.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cost")
-                        .IsRequired();
+                    b.Property<double>("Cost");
 
                     b.Property<string>("CountryOfOrigin")
                         .IsRequired();

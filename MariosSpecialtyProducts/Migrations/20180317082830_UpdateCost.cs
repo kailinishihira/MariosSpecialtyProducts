@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MariosSpecialtyProducts.Migrations
 {
-    public partial class RangeForCost : Migration
+    public partial class UpdateCost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<decimal>(
+            migrationBuilder.AlterColumn<double>(
                 name: "Cost",
                 table: "Products",
                 nullable: false,
@@ -21,7 +21,7 @@ namespace MariosSpecialtyProducts.Migrations
                 name: "Cost",
                 table: "Products",
                 nullable: false,
-                oldClrType: typeof(decimal));
+                oldClrType: typeof(double));
         }
     }
 }

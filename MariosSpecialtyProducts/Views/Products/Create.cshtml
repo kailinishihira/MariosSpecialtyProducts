@@ -8,6 +8,8 @@
     <h1 class="title">Add a New Product</h1>
 </div>
 
+<p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
+
 @using (Html.BeginForm())
 {
     <div class="well">
@@ -15,22 +17,24 @@
             <label class="col-md-2">Name of Product:</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
             </div>
         </div>
 	    <div class="form-group row">
             <label class="col-md-2">Cost:</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Cost, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.Cost, null, new { @class = "text-danger" })
             </div>
         </div>
 	    <div class="form-group row">
             <label class="col-md-2">Country of Origin:</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.CountryOfOrigin, new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.CountryOfOrigin, null, new { @class = "text-danger" })
             </div>
         </div>
         <input type="submit" value="Add" class="btn btn-default" />
     </div>
 }
 
-<p class="back">@Html.ActionLink("Back", "Index")</p>

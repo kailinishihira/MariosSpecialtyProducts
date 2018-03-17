@@ -62,7 +62,8 @@ namespace MariosSpecialtyProductsTests.ControllersTests
 			ReviewsController controller = new ReviewsController(mock.Object);
 			Review testReview = new Review();
             testReview.ReviewId = 1;
-			testReview.Author = "We enjoyed this pasta. It cooked quickly and evenly.";
+            testReview.Author = "Kaili";
+			testReview.ContentBody = "We enjoyed this pasta. It cooked quickly and evenly.";
             testReview.Rating = 5;
             testReview.ProductId = 1;
 		
@@ -80,7 +81,7 @@ namespace MariosSpecialtyProductsTests.ControllersTests
 			ReviewsController controller = new ReviewsController(db);
 		    ProductsController productsController = new ProductsController(db2);
 			Product testProduct = new Product()
-			{ ProductId = 1, Name = "Linguine", Cost = "3.00", CountryOfOrigin = "Italy" };
+			{ ProductId = 1, Name = "Linguine", Cost = 3.00, CountryOfOrigin = "Italy" };
             Review testReview = new Review()
             { Author = "Kaili", ContentBody = "We enjoyed this pasta. It cooked quickly and evenly.", Rating = 5, ProductId = 1 };
             controller.Create(testReview);

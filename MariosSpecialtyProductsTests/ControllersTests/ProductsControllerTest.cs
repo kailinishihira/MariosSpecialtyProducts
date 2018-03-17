@@ -19,9 +19,9 @@ namespace MariosSpecialtyProductsTests
 		private void DbSetup()
 		{
 			mock.Setup(m => m.Products).Returns(new Product[]{
-				new Product(){ProductId = 1, Name = "Linguine", Cost = "3.00", CountryOfOrigin = "Italy"},
-				new Product(){ProductId = 2, Name = "Pasta Sauce", Cost = "5.00", CountryOfOrigin = "USA"},
-				new Product(){ProductId = 3, Name = "EVOO", Cost = "10.00", CountryOfOrigin = "Italy"}
+				new Product(){ProductId = 1, Name = "Linguine", Cost = 3.00, CountryOfOrigin = "Italy"},
+				new Product(){ProductId = 2, Name = "Pasta Sauce", Cost = 5.00, CountryOfOrigin = "USA"},
+				new Product(){ProductId = 3, Name = "EVOO", Cost = 10.00, CountryOfOrigin = "Italy"}
 			}.AsQueryable());
 		}
 
@@ -62,7 +62,7 @@ namespace MariosSpecialtyProductsTests
 			Product testProduct = new Product();
             testProduct.ProductId = 1;
 			testProduct.Name = "Linguine";
-			testProduct.Cost = "3.00";
+			testProduct.Cost = 3.00;
             testProduct.CountryOfOrigin = "Italy";
 			
 			ViewResult indexView = controller.Index() as ViewResult;
@@ -76,7 +76,7 @@ namespace MariosSpecialtyProductsTests
 			//Arrange
 			ProductsController controller = new ProductsController(db);
 			Product testProduct = new Product()
-			{ ProductId = 1, Name = "Linguine", Cost = "3.00", CountryOfOrigin = "Italy" };
+			{ ProductId = 1, Name = "Linguine", Cost = 3.00, CountryOfOrigin = "Italy" };
 	
 			//Act
 			controller.Create(testProduct);

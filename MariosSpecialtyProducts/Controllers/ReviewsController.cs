@@ -40,43 +40,23 @@ namespace MariosSpecialtyProducts.Controllers
                                        .FirstOrDefault(x => x.ReviewId == reviewId);
             return View(thisReview);
         }
-
-        public IActionResult Create(int productId)
-        {
-            ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");  
-            return View();
-        }	
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Review review)
-        {
-            if (ModelState.IsValid)
-            {
-                reviewRepo.Save(review);
-            }
-
-            return RedirectToAction("Index");
-        }
-
-		
-		public IActionResult AddReview(int productId)
+        
+		public IActionResult Create(int productId)
 		{
-			ViewBag.ProductId = reviewRepo.Products.FirstOrDefault(x => x.ProductId == productId);
+			ViewBag.ProductId = reviewRepo.Products.Include(x => x.ProductId);
 			return View();
 		}
-
-		
+        		
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public IActionResult AddReview(Review review)
+		public IActionResult Create(Review review)
 		{
 			if (ModelState.IsValid)
 			{
 				reviewRepo.Save(review);
-			}
-
-			return RedirectToAction("Details", "Products", new { productId = review.ProductId });
+                return RedirectToAction("Details", "Products", new { productId = review.ProductId });
+            }
+            return View();			
 		}
 
 		public IActionResult Edit(int reviewId)
@@ -93,9 +73,9 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 reviewRepo.Edit(review);
+                return RedirectToAction("Details", "Products", new { productId = review.ProductId });
             }
-
-            return RedirectToAction("Details", "Products", new { productId = review.ProductId});
+            return View(review);            
 		}
 
         public IActionResult Delete(int reviewId)
@@ -114,7 +94,7 @@ namespace MariosSpecialtyProducts.Controllers
             {
                 var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == reviewId);
                 reviewRepo.Remove(thisReview);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Products");
             }
             catch
             {

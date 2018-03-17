@@ -14,9 +14,9 @@ namespace MariosSpecialtyProducts.Migrations
                 {
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
-                    Cost = table.Column<string>(nullable: true),
-                    CountryOfOrigin = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Cost = table.Column<string>(nullable: false),
+                    CountryOfOrigin = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
