@@ -28,13 +28,6 @@ _Styling inspired by [Eataly](https://www.eataly.com/)._
 * Enter `dotnet restore` in your terminal
 * Enter `dotnet ef database udpate` in your terminal
 
-##### Import data from the Cloned Repository
-* _Click 'Open start page' in MAMP_
-* _Under 'Tools', select 'phpMyAdmin'_
-* _Click 'Import' tab_
-* _Choose database file (from cloned repository folder)_
-* _Click 'Go'_
-
 ## Technologies Used
 * _C#_
 * _.NET_
